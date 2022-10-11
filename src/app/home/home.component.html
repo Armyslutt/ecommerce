@@ -1,0 +1,162 @@
+<nav class="navbar navbar-light row">
+    <div class="container-fluid g-col-6">
+      <span><img class="input-icon" src="../../assets/icons/justify.svg">
+      </span><a class="navbar-brand"><strong>Chulwudi</strong></a>
+      <div class="col-sm-8 input-wrapper">
+        <input class="form-control" type="search" placeholder="Search...">
+      </div>
+      <div class="d-flex g-col-6">
+        <img class="icon" src="../../assets/icons/profile-icon.svg">
+        <button class="btn btn-outline-warning">{{productsCount()}}</button>
+      </div>
+    </div>
+</nav>
+  
+  <div class="container pb-5 mt-n2 mt-md-n3">
+    <div class="row">
+      <div class="col-xl-8 col-md-8">
+
+        <div class="header">
+          <img class="header-image" src="../../assets/images/headerimage.png">
+          <span style="color: #ff6229;">$0 delivery for 30 days!<img src="../../assets/images/delivery01.png"></span>
+          <span>$0 delivery free for orders over $10 for 30 days</span>
+        </div><br>
+
+        <div>
+          <p></p>
+            <h2>Restaurants</h2>
+        </div>
+
+        <br>
+        <div class="row row-cols-8 row-cols-md-8 g-2 text-center">
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/images/all.png"></span>
+              <div class="card-body">
+                <h5 class="card-title">All</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/icons/pizza-icon.svg"></span>
+              <div class="card-body">
+                <h5 class="card-title">Pizza</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/icons/food-icon.svg"></span>
+              <div class="card-body">
+                <h5 class="card-title">Asian</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/icons/hamburger02-icon.svg"></span>
+              <div class="card-body">
+                <h5 class="card-title">Burgers</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/icons/meat-icon.svg"></span>
+              <div class="card-body">
+                <h5 class="card-title">Barbecue</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/icons/cupcake-icon.svg"></span>
+              <div class="card-body">
+                <h5 class="card-title">Desserts</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/icons/pinneaple-icon.svg"></span>
+              <div class="card-body">
+                <h5 class="card-title">Thai</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-10">
+              <span class="category"><img class="icon-categories" src="../../assets/images/sushi.png"></span>
+              <div class="card-body">
+                <h5 class="card-title">Sushi</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p></p>
+        
+        
+
+      <!--Item-->
+
+      <div class="container row row-cols-3 row-cols-md-3 g-4 media d-sm-flex text-sm-left">
+        <div *ngFor="let product of productList" class="col card" style="border: none;">
+          <div class="card-header mx-auto mr-sm-4" href="">
+            <img [src]="product.image" alt="Product" class="img-food">
+          </div>
+          <div class="card-title">
+            <h3 class="font-weight-semibold border-0 pb-0 mx-5">
+              {{product.name}}
+            </h3>
+          </div><br>
+          <div class="font-size-sm">
+            <span class="text-muted mr-2"><img class="icon" src="../../assets/icons/star-icon.svg">
+              {{product.qualification}}
+            </span>
+          </div>
+          <div class="font-size-sm"><br>
+            <span class="text-muted mr-2">{{product.time}}</span>
+          </div>
+          <div class="font-size-lg text-primary pt-2">
+            <h3>Price: </h3>{{product.price}}
+          </div><br>
+          <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 card-footer" style="max-width: 10rem;">
+            <button (click)="addToCart(product)" type="button" class="btn btn-info mt-3">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+      <!--Sidebar-->
+      <div class="col-xl-4 col-md-5 pt-3 pt-md-0 mt-5">
+  
+        <h2 class="h6 px-4 py-3 bg-light text-center">My order</h2>
+        <div class="h3 font-weight-semibold text-center py-3">{{ total | currency }}</div>
+        <hr>
+        <h3 class="h6 pt-4 font-weight-semibold">
+          Product Preview
+        </h3>
+        <div class="product-info" *ngFor="let product of products; let i = index">
+          <div class="col-md-3">
+            <div class="">
+              <img [src]="product?.image" alt="Product" class="img-food-cart">
+            </div>
+          </div>
+          <h5>{{product?.name}} <span>{{product?.price}}</span></h5>
+          <div> cantidad
+            <input [(ngModel)]="product.quantity" 
+            [ngModelOptions]="{standalone : true}"
+             min="1" type="number" name="" class="form-control w-25"
+               />
+            <br />
+            <span>{{ product.quantity * product?.price | number: '1.2-2' }}</span>
+          </div>
+  
+          <button (click)="removeFromCart(product)" type="button" class="btn btn-danger mt-3">Remove from cart</button>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>

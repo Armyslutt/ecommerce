@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+div{
+	font-family: 'Quicksand', sans-serif;
+}
+
+.navbar {
+	font-family: 'Quicksand', sans-serif;
+	font-size: large;
+	padding: 40px 70px 40px 70px;
+	background-color: #ffffff;
+}
+.container{
+	font-family: 'Quicksand', sans-serif;
+}
+.navbar-brand {
+	font-size: 23px;
+	padding-right: 3.5em;
+}
+.form-control{
+	padding: 10px;
+	text-align: center;
+	background-color: #f8f8f8 ;
+	border: none;
+	width: 60%;
+	border-radius: 15px;
+}
+.input-icon {
+	width: 40px;	
+}
+.icon{
+	padding-right: 40px;
+	width: 60px;
+}
+.header {
+	background-color: #fff7eb;
+	border-radius: 40px;
+}
+.header-image {
+	padding-left: 25px;
+	width: 30%;
+}
+
+.category{
+	background-color: #ffffff;
+	text-align: center; 
+}
+
+.h-10 {
+	border: none;
+}
+.h-10:hover{
+	background-color: #ffd644;
+	-webkit-transform:scale(1.1);
+	-moz-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	-o-transform:scale(1.1);
+	transform:scale(1.1);
+}
+
+.icon-categories {
+	width: 40px;
+	border-radius: 100%;
+}
+.img-food {
+	width: 100%;
+	height: 150px;
+	border-radius: 5px;
+}
+.img-food-cart {
+	width: 200px;
+	border-radius: 10px;
+}
